@@ -11,8 +11,8 @@ This Docker image helps you to run Spark (on Docker) with the following installe
 # Setting up (one-time only)
 
 ## On MacOSX:
-### 1. Install [[http://brew.sh][homebrew]]
-### 2. Install [[https://www.virtualbox.org/wiki/Downloads][Virtualbox]]
+### 1. Install [homebrew](http://brew.sh)
+### 2. Install [Virtualbox](https://www.virtualbox.org/wiki/Downloads)
 ### 3. Install boot2docker
 
 Run the following commands in your MacOS terminal.
