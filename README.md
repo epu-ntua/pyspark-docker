@@ -17,28 +17,26 @@ This Docker image helps you to run Spark (on Docker) with the following installe
 
 Run the following commands in your MacOS terminal.
 
-#### +begin_src sh
+```
 brew install boot2docker
 boot2docker init
 boot2docker up
+```
 # The following URL is output as a result of the above "boot2docker up" command.
 ```
 export DOCKER_HOST=tcp://192.168.59.103:2375
 ```
 
-#### +end_src
 
 ### 4. Install docker:
 
 Run the following commands in your MacOS terminal.
 
-#### +begin_src sh
 ```
 brew install docker
 docker version
 ```
 
-#### +end_src
 
 ## On other OSes
 
@@ -52,64 +50,52 @@ Make sure that docker is installed and is runnable from the command-line.
 Run the following commands in your MacOS terminal (make sure that
 =$DOCKER_HOST= is set correctly)
 
-#### +begin_src
 ```
 docker build -t pyspark github.com/mpetyx/pyspark-docker
 ```
-#### +end_src
 
 
 ## 2. Start the container
 
 Run the following command to start the container and get a bash prompt
 
-#### +begin_src sh
 ```
 docker run -i -t -h sandbox pyspark /etc/bootstrap.sh -bash
 ```
-#### +end_src
 
 ## 3. Start pyspark
 
-#### +begin_src
 ```
 /usr/local/spark/bin/pyspark
 ```
-#### +end_src
 
 This should place you in a python prompt (=>>>=)
 ## 4. Verify installation
 
 To verify pyspark, run the following example Spark program:
-#### +begin_src python
 ```
 data = [1, 2, 3, 4, 5]
 sc.parallelize(data).count()
 ```
-#### +end_src
 
 This should print a bunch of debugging output, and on the last line,
 it should print the output, "5"
 
 To verify scikit-learn, run the following example program:
 
-#### +begin_src python
 ```
 from sklearn import svm, datasets
 clf = svm.SVC(gamma=0.001, C=100.)
 digits = datasets.load_digits()
 clf.fit(digits.data[:-1], digits.target[:-1])
 ```
-#### +end_src
 
 You should see output like:
-#### +begin_src
 ```
 SVC(C=100.0, cache_size=200, class_weight=None, coef0=0.0, degree=3,
   gamma=0.001, kernel='rbf', max_iter=-1, probability=False,
   random_state=None, shrinking=True, tol=0.001, verbose=False)
 ```
-#### +end_src
 
 # (OPTIONAL) Building the docker image yourself
 
@@ -119,10 +105,9 @@ few minutes) the first time, since numpy and scikitlearn need to be
 compiled from source, but the result is then cached. This step should
 only be necessary if you modify =Dockerfile=
 
-#### +begin_src sh
 ```
 $ docker build -t pyspark-docker .
 ```
-#### +end_src
+
 # Troubleshooting
 If you are unable to access HDFS from pyspark, try running pyspark with the =--master yarn= flag.
