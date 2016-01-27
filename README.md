@@ -8,12 +8,12 @@ This Docker image helps you to run Spark (on Docker) with the following installe
 4. scipy 0.14.0
 5. scikit-learn 0.15.2
 
-* Setting up (one-time only)
+# Setting up (one-time only)
 
-** On MacOSX:
-*** 1. Install [[http://brew.sh][homebrew]]
-*** 2. Install [[https://www.virtualbox.org/wiki/Downloads][Virtualbox]]
-*** 3. Install boot2docker
+## On MacOSX:
+### 1. Install [[http://brew.sh][homebrew]]
+### 2. Install [[https://www.virtualbox.org/wiki/Downloads][Virtualbox]]
+### 3. Install boot2docker
 
 Run the following commands in your MacOS terminal.
 
@@ -24,7 +24,7 @@ boot2docker up
 # The following URL is output as a result of the above "boot2docker up" command.
 export DOCKER_HOST=tcp://192.168.59.103:2375
 #+end_src
-*** 4. Install docker:
+### 4. Install docker:
 
 Run the following commands in your MacOS terminal.
 
@@ -33,14 +33,14 @@ brew install docker
 docker version
 #+end_src
 
-** On other OSes
+## On other OSes
 
-Make sure that docker is installed and is runnable from the command-line.  
+Make sure that docker is installed and is runnable from the command-line.
 
-* Starting pyspark
+# Starting pyspark
 
 
-** 1. Pull the docker image
+## 1. Pull the docker image
 
 Run the following commands in your MacOS terminal (make sure that
 =$DOCKER_HOST= is set correctly)
@@ -50,7 +50,7 @@ docker build -t pyspark github.com/mpetyx/pyspark-docker
 #+end_src
 
 
-** 2. Start the container
+## 2. Start the container
 
 Run the following command to start the container and get a bash prompt
 
@@ -58,14 +58,14 @@ Run the following command to start the container and get a bash prompt
 docker run -i -t -h sandbox pyspark /etc/bootstrap.sh -bash
 #+end_src
 
-** 3. Start pyspark
+## 3. Start pyspark
 
 #+begin_src
 /usr/local/spark/bin/pyspark
 #+end_src
 
 This should place you in a python prompt (=>>>=)
-** 4. Verify installation
+## 4. Verify installation
 
 To verify pyspark, run the following example Spark program:
 #+begin_src python
@@ -92,7 +92,7 @@ SVC(C=100.0, cache_size=200, class_weight=None, coef0=0.0, degree=3,
   random_state=None, shrinking=True, tol=0.001, verbose=False)
 #+end_src
 
-* (OPTIONAL) Building the docker image yourself
+# (OPTIONAL) Building the docker image yourself
 
 You can build this docker image, by running the following command in
 the same directory as this =README= file. The command will be slow (a
@@ -103,5 +103,5 @@ only be necessary if you modify =Dockerfile=
 #+begin_src sh
 $ docker build -t pyspark-docker .
 #+end_src
-* Troubleshooting
+# Troubleshooting
 If you are unable to access HDFS from pyspark, try running pyspark with the =--master yarn= flag.
