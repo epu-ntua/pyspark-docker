@@ -1,4 +1,4 @@
-FROM sequenceiq/spark:1.1.0
+FROM sequenceiq/spark:1.6.0
 MAINTAINER mpetyx, mpetyx@gmail.com
 
 #RUN yum -y install numpy scipy python-matplotlib gcc gcc-c++
