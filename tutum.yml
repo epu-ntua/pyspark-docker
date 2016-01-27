@@ -1,2 +1,2 @@
 web:
-  image: mpetyx/pyspark
+  image: tutum.com/mpetyx/pyspark
